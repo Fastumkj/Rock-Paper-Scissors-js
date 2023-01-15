@@ -1,6 +1,7 @@
 alert("javascript is working!");
 
-const options = document.querySelectorAll(".options");
+const options = document.querySelectorAll(".options"); //querySelectorAll() returns an array of objects with all the HTML elements
+//querySelector() returns the single object with the first HTML element.  
 let playerScore = 0;
 let compScore = 0;
 
