@@ -65,8 +65,8 @@ function checkWinner() {
   if (playerScore === 5 || compScore === 5) {
     const winner =
       playerScore === 5
-        ? "You win the game! Congratulations!"
-        : "Computer wins the game! Try again next time!";
+        ? "You hooman won the game! Congratulations!"
+        : "You hooman just lost the game! Try again next year.";
     alert(winner);
     return true;
   }
