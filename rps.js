@@ -1,4 +1,4 @@
-alert("BATTLE OF THE 3 HAND SIGNS");
+alert("BATTLE OF THE 3 HAND SIGNS!!");
 
 const options = document.querySelectorAll(".options"); //querySelectorAll() returns an array of objects with all the HTML elements
 //querySelector() returns the single object with the first HTML element.  
