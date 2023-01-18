@@ -1,9 +1,11 @@
 alert("BATTLE OF THE 3 HAND SIGNS!!");
 
 const options = document.querySelectorAll(".options"); //querySelectorAll() returns an array of objects with all the HTML elements
-//querySelector() returns the single object with the first HTML element.  
-let playerScore = 0;
-let compScore = 0;
+//querySelector() returns the single object with the first HTML element.
+const scores = {
+  player: 0,
+  ai: 0,
+};
 
 options.forEach((option) => {
   //each time u click
@@ -18,7 +20,7 @@ options.forEach((option) => {
     compareInputs(pChoice, cChoice);
     updateScore();
     if (checkWinner()) {
-      playerScore = compScore = 0;
+      scores.player = scores.ai = 0;
       updateScore();
     }
   });
@@ -34,37 +36,37 @@ const compareInputs = (pChoice, cChoice) => {
 
     //Comp wins
   } else if (pChoice === "Rock" && cChoice === "Paper") {
-    compScore++;
+    scores.ai++;
     alert("You lost!");
   } else if (pChoice === "Paper" && cChoice === "Scissors") {
-    compScore++;
+    scores.ai++;
     alert("You lost!");
   } else if (pChoice === "Scissors" && cChoice === "Rock") {
-    compScore++;
+    scores.ai++;
     alert("You lost!");
 
     //Player wins
   } else if (pChoice === "Rock" && cChoice === "Scissors") {
-    playerScore++;
+    scores.player++;
     alert("You won! Rock crushes Scissors");
   } else if (pChoice === "Paper" && cChoice === "Rock") {
-    playerScore++;
+    scores.player++;
     alert("You won! Paper covers Rock");
   } else if (pChoice === "Scissors" && cChoice === "Paper") {
-    playerScore++;
+    scores.player++;
     alert("You won! Scissors cuts Paper");
   }
 };
 
 function updateScore() {
-  document.getElementById("p-score").textContent = playerScore;
-  document.getElementById("c-score").textContent = compScore;
+  document.getElementById("p-score").textContent = scores.player;
+  document.getElementById("c-score").textContent = scores.ai;
 }
 
 function checkWinner() {
-  if (playerScore === 5 || compScore === 5) {
+  if (scores.player === 5 || scores.ai === 5) {
     const winner =
-      playerScore === 5
+      scores.player === 5
         ? "You hooman won the game! Congratulations!"
         : "You hooman just lost the game! Try again next year.";
     alert(winner);
